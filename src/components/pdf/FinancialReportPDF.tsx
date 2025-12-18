@@ -193,6 +193,7 @@ const styles = StyleSheet.create({
   
   // Helpers
   textRight: { textAlign: 'right' },
+  w60: { width: '60%' },
   w40: { width: '40%' },
   w30: { width: '30%' },
   w20: { width: '20%' },

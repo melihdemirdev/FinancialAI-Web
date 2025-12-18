@@ -8,6 +8,7 @@ import {
   Installment, 
   Goal, 
   Transaction,
+  Subscription,
   AssetType, 
   LiabilityType, 
   SafeToSpendMode 
@@ -94,7 +95,58 @@ export const useFinanceStore = create<FinanceStore>()(
       subscriptions: [],
 
       // --- Asset Actions ---
-// ... (omitting intermediate for brevity, focusing on the changes)
+      addAsset: (asset) =>
+        set((state) => ({
+          assets: [...state.assets, { ...asset, id: crypto.randomUUID(), createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() }],
+        })),
+      updateAsset: (id, updates) =>
+        set((state) => ({
+          assets: state.assets.map((a) => a.id === id ? { ...a, ...updates, updatedAt: new Date().toISOString() } : a),
+        })),
+      removeAsset: (id) => set((state) => ({ assets: state.assets.filter((a) => a.id !== id) })),
+
+      // --- Liability Actions ---
+      addLiability: (liability) =>
+        set((state) => ({
+          liabilities: [...state.liabilities, { ...liability, id: crypto.randomUUID(), createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() }],
+        })),
+      updateLiability: (id, updates) =>
+        set((state) => ({
+          liabilities: state.liabilities.map((l) => l.id === id ? { ...l, ...updates, updatedAt: new Date().toISOString() } : l),
+        })),
+      removeLiability: (id) => set((state) => ({ liabilities: state.liabilities.filter((l) => l.id !== id) })),
+
+      // --- Receivable Actions ---
+      addReceivable: (receivable) =>
+        set((state) => ({
+          receivables: [...state.receivables, { ...receivable, id: crypto.randomUUID(), createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() }],
+        })),
+      updateReceivable: (id, updates) =>
+        set((state) => ({
+          receivables: state.receivables.map((r) => r.id === id ? { ...r, ...updates, updatedAt: new Date().toISOString() } : r),
+        })),
+      removeReceivable: (id) => set((state) => ({ receivables: state.receivables.filter((r) => r.id !== id) })),
+
+      // --- Installment Actions ---
+      addInstallment: (installment) =>
+        set((state) => ({
+          installments: [...state.installments, { ...installment, id: crypto.randomUUID(), createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() }],
+        })),
+      updateInstallment: (id, updates) =>
+        set((state) => ({
+          installments: state.installments.map((inst) => inst.id === id ? { ...inst, ...updates, updatedAt: new Date().toISOString() } : inst),
+        })),
+      removeInstallment: (id) => set((state) => ({ installments: state.installments.filter((i) => i.id !== id) })),
+
+      // --- Goal Actions ---
+      addGoal: (goal) =>
+        set((state) => ({
+          goals: [...state.goals, { ...goal, id: crypto.randomUUID(), createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() }],
+        })),
+      updateGoal: (id, updates) =>
+        set((state) => ({
+          goals: state.goals.map((g) => g.id === id ? { ...g, ...updates, updatedAt: new Date().toISOString() } : g),
+        })),
       removeGoal: (id) => set((state) => ({ goals: state.goals.filter((g) => g.id !== id) })),
 
       // --- Transaction Actions ---
@@ -119,7 +171,6 @@ export const useFinanceStore = create<FinanceStore>()(
       removeSubscription: (id) => set((state) => ({ subscriptions: state.subscriptions.filter((s) => s.id !== id) })),
 
       clearAllData: () => set({ assets: [], liabilities: [], receivables: [], installments: [], goals: [], transactions: [], subscriptions: [] }),
-
 
       // --- Selectors ---
       getTotalAssets: () => get().assets.reduce((total, asset) => total + asset.value, 0),

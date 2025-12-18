@@ -124,7 +124,7 @@ export function EditInstallmentModal({ isOpen, onClose, installment }: { isOpen:
         <Select 
           label="Para Birimi" 
           value={formData.currency} 
-          onChange={(e) => setFormData({ ...formData, currency: e.target.value })} 
+          onChange={(e) => setFormData({ ...formData, currency: e.target.value as Currency })} 
           options={[
             { value: 'TRY', label: '₺ Türk Lirası' }, 
             { value: 'USD', label: '$ Amerikan Doları' }, 

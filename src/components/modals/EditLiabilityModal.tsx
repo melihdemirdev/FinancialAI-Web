@@ -137,12 +137,11 @@ export function EditLiabilityModal({ isOpen, onClose, liability }: EditLiability
           onChange={(e) => setFormData({ ...formData, dueDate: e.target.value })}
         />
 
-        <Select
-          label="Para Birimi"
-          value={formData.currency}
-          onChange={(e) => setFormData({ ...formData, currency: e.target.value })}
-          options={[
-            { value: 'TRY', label: '₺ Türk Lirası' },
+                <Select 
+                  label="Para Birimi" 
+                  value={formData.currency} 
+                  onChange={(e) => setFormData({ ...formData, currency: e.target.value as Currency })} 
+                  options={[            { value: 'TRY', label: '₺ Türk Lirası' },
             { value: 'USD', label: '$ Amerikan Doları' },
             { value: 'EUR', label: '€ Euro' },
             { value: 'GBP', label: '£ İngiliz Sterlini' },
