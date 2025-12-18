@@ -7,7 +7,7 @@ import { useThemeStore } from '@/store/useThemeStore';
 import { calculateCategoryScores, getScoreCategory } from '@/domain/calculations/healthScore';
 import { formatCurrency, formatCurrencySmart } from '@/domain/formatters/currency';
 import { getRecommendations } from '@/domain/recommendations';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import FinancialCharts from '@/components/charts/FinancialCharts';
 import {
   Wallet,
@@ -51,7 +51,7 @@ import { Button } from '@/components/ui/Button';
 import type { CFOReportData } from '@/types';
 
 // Animation Variants
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -61,7 +61,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,

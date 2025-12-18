@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Onboarding from '@/components/Onboarding';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,13 +29,13 @@ export default function Home() {
     return (
       <div className="flex min-h-screen items-center justify-center bg-white dark:bg-gray-950">
         <div className="text-center">
-          <motion_div 
+          <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             className="mb-6 text-5xl font-black bg-gradient-to-r from-purple-600 to-cyan-500 text-transparent bg-clip-text tracking-tighter"
           >
             FinancialAI
-          </motion_div>
+          </motion.div>
           <div className="flex items-center justify-center gap-3 text-purple-600 font-medium">
             <Loader2 className="w-6 h-6 animate-spin stroke-[3px]" />
             <span className="tracking-widest uppercase text-xs">Yükleniyor</span>
@@ -51,12 +52,8 @@ export default function Home() {
 
   // Fallback for redirecting state
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white dark:bg-gray-950">
+    <div className="flex min-h-screen items-center justify-center bg-white dark:bg-gray-900">
        <Loader2 className="w-8 h-8 animate-spin text-purple-600" />
     </div>
   );
 }
-
-// Helper to keep code clean since I used motion_div above as a placeholder for reasoning
-import { motion } from 'framer-motion';
-const motion_div = motion.div;

@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/Button';
 import { AddAssetModal } from '@/components/modals/AddAssetModal';
 import { EditAssetModal } from '@/components/modals/EditAssetModal';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const assetTypeLabels: Record<string, string> = {
   liquid: 'Likit (Nakit)',
@@ -19,7 +19,7 @@ const assetTypeLabels: Record<string, string> = {
   funds: 'Fonlar',
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -29,7 +29,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,

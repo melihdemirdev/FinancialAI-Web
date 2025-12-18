@@ -10,14 +10,14 @@ import { Button } from '@/components/ui/Button';
 import { AddLiabilityModal } from '@/components/modals/AddLiabilityModal';
 import { EditLiabilityModal } from '@/components/modals/EditLiabilityModal';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const liabilityTypeLabels: Record<string, string> = {
   credit_card: 'Kredi Kartı',
   personal_debt: 'Şahıs Borcu',
 };
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -27,7 +27,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
