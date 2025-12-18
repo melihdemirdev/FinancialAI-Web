@@ -11,7 +11,7 @@ import { hasApiKey, getApiKey, saveApiKey, clearApiKey } from '@/services/ai';
 import { calculateCategoryScores } from '@/domain/calculations/healthScore';
 import { pdf } from '@react-pdf/renderer';
 import FinancialReportPDF from '@/components/pdf/FinancialReportPDF';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import {
   User,
   Palette,
@@ -31,7 +31,7 @@ import {
 import Link from 'next/link';
 import type { Currency, FinancialData } from '@/types';
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -41,7 +41,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
