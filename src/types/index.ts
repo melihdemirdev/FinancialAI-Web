@@ -165,11 +165,26 @@ export interface ScoreBreakdown {
 // AI CFO Report
 
 export interface CFOReportData {
-  summary: string;
-  risks: string[];
-  actions: string[];
-  rawText: string;
-  generatedAt: string;
+  // Input Metrics
+  netWorth: number;
+  totalAssets: number;
+  totalLiabilities: number;
+  liquidAssets: number;
+  monthlyIncome: number;
+  monthlyInstallments: number;
+  healthScore: number;
+  currency: Currency;
+  findeksScore?: number;
+  assetsByType: Record<string, number>;
+  liabilitiesByType: Record<string, number>;
+
+  // Result fields (optional because they are populated after AI generation)
+  summary?: string;
+  risks?: string[];
+  actions?: string[];
+  rawText?: string;
+  generatedAt?: string;
+  
   // Goals info for AI context
   goalsProgress?: {
     totalGoals: number;
